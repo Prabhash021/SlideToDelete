@@ -60,15 +60,11 @@ public class MainActivity extends AppCompatActivity implements Adapter.OnDeleteL
                 deleteData(swipedPosition);
             }
             public void onChildDraw(@NonNull Canvas c, @NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, float dX, float dY, int actionState, boolean isCurrentlyActive) {
-                // Customize the appearance of the swiped item here
-                if (actionState == ItemTouchHelper.ACTION_STATE_SWIPE && viewHolder.getAdapterPosition() == swipedPosition) {
-                    // Set the background color
+                if (actionState == ItemTouchHelper.ACTION_STATE_SWIPE || viewHolder.getAdapterPosition() == swipedPosition) {
+
                     ColorDrawable background = new ColorDrawable(Color.RED);
                     background.setBounds(viewHolder.itemView.getRight() + (int) dX, viewHolder.itemView.getTop(), viewHolder.itemView.getRight(), viewHolder.itemView.getBottom());
                     background.draw(c);
-
-                    // You can also draw a delete icon or text if needed
-                    // Example: drawDeleteIcon(c, viewHolder);
                 }
 
                 super.onChildDraw(c, recyclerView, viewHolder, dX, dY, actionState, isCurrentlyActive);

@@ -72,10 +72,6 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
         swipedPosition = position;
     }
 
-    public int getSwipedPosition() {
-        return swipedPosition;
-    }
-
     public interface OnDeleteListener {
         void onDelete(int position);
     }
